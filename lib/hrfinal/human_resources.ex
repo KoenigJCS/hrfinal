@@ -17,6 +17,20 @@ defmodule Hrfinal.HumanResources do
       [%Employee{}, ...]
 
   """
+  def subscribe() do
+    Phoenix.PubSub.subscribe(Hrfinal.PubSub, "employees")
+  end
+
+
+  def broadcast({:ok, employee}, tag) do
+    Phoenix.PubSub.broadcast(
+      Hrfinal.PubSub, "employees", {tag, employee}
+    )
+    {:ok,employee}
+  end
+
+  def broadcast({:error, _changeset} = error, _tag), do: error
+
   def list_employees do
     Repo.all(Employee)
   end
