@@ -4,6 +4,7 @@ defmodule HrfinalWeb.EmployeeController do
   alias Hrfinal.HumanResources
   alias Hrfinal.HumanResources.Employee
 
+
   def index(conn, _params) do
     employees = HumanResources.list_employees()
     render(conn, :index, employees: employees)
@@ -59,4 +60,8 @@ defmodule HrfinalWeb.EmployeeController do
     |> put_flash(:info, "Employee deleted successfully.")
     |> redirect(to: ~p"/employees")
   end
+
+  # def handle_info({:employee_created, employee}, socket) do
+  #   {:noreply, stream_insert(socket, :employee, employee)}
+  # end
 end

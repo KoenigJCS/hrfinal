@@ -67,6 +67,7 @@ defmodule Hrfinal.HumanResources do
     %Employee{}
     |> Employee.changeset(attrs)
     |> Repo.insert()
+    |> broadcast(:employee_created)
   end
 
   @doc """
@@ -85,6 +86,7 @@ defmodule Hrfinal.HumanResources do
     employee
     |> Employee.changeset(attrs)
     |> Repo.update()
+    |> broadcast(:employee_updated)
   end
 
   @doc """
@@ -101,6 +103,7 @@ defmodule Hrfinal.HumanResources do
   """
   def delete_employee(%Employee{} = employee) do
     Repo.delete(employee)
+    |> broadcast(:employee_deleted)
   end
 
   @doc """
