@@ -1473,6 +1473,10 @@ select {
   font-weight: 500;
 }
 
+.font-bold {
+  font-weight: 700;
+}
+
 .leading-8 {
   line-height: 2rem;
 }
@@ -1545,6 +1549,11 @@ select {
 .text-brand {
   --tw-text-opacity: 1;
   color: rgb(253 79 0 / var(--tw-text-opacity));
+}
+
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .antialiased {
