@@ -16,6 +16,7 @@
                         'Elixir.HrfinalWeb.CoreComponents',
                         'Elixir.HrfinalWeb.EmployeeApiController',
                         'Elixir.HrfinalWeb.EmployeeApiJSON',
+                        'Elixir.HrfinalWeb.EmployeeChannel',
                         'Elixir.HrfinalWeb.EmployeeController',
                         'Elixir.HrfinalWeb.EmployeeHTML',
                         'Elixir.HrfinalWeb.Endpoint',
@@ -26,7 +27,8 @@
                         'Elixir.HrfinalWeb.PageController',
                         'Elixir.HrfinalWeb.PageHTML',
                         'Elixir.HrfinalWeb.Router',
-                        'Elixir.HrfinalWeb.Telemetry']},
+                        'Elixir.HrfinalWeb.Telemetry',
+                        'Elixir.HrfinalWeb.UserSocket']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.Hrfinal.Application',[]}}]}.

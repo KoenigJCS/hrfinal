@@ -18,6 +18,7 @@ defmodule HrfinalWeb.EmployeeController do
   def create(conn, %{"employee" => employee_params}) do
     case HumanResources.create_employee(employee_params) do
       {:ok, employee} ->
+        HrfinalWeb.Endpoint.broadcast("employee:lobby", "create", %{})
         conn
         |> put_flash(:info, "Employee created successfully.")
         |> redirect(to: ~p"/employees/#{employee}")
@@ -40,7 +41,7 @@ defmodule HrfinalWeb.EmployeeController do
 
   def update(conn, %{"id" => id, "employee" => employee_params}) do
     employee = HumanResources.get_employee!(id)
-
+    HrfinalWeb.Endpoint.broadcast("employee:lobby", "update", %{})
     case HumanResources.update_employee(employee, employee_params) do
       {:ok, employee} ->
         conn
@@ -55,7 +56,7 @@ defmodule HrfinalWeb.EmployeeController do
   def delete(conn, %{"id" => id}) do
     employee = HumanResources.get_employee!(id)
     {:ok, _employee} = HumanResources.delete_employee(employee)
-
+    HrfinalWeb.Endpoint.broadcast("employee:lobby", "delete", %{})
     conn
     |> put_flash(:info, "Employee deleted successfully.")
     |> redirect(to: ~p"/employees")
